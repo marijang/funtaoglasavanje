@@ -45,6 +45,7 @@ body {
 
 header{
     position: fixed;
+    display:none;
     margin-top: 2%;
     left: 0;
     right: 0;
@@ -103,34 +104,270 @@ header{
 
 }
 
+.bgOverlay{
+	position:relative;
+}
+.imageBackground{
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+ 
+    -webkit-transition: -webkit-transform 0.5s;
+    -moz-transition: -moz-transform 0.5s;
+    transition: transform 0.5s;
+
+
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+    
+
+
+	
+    background-size: cover;
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	z-index:1000;
+	opacity: 0.2;
+	&.active {
+		position: absolute;
+	    -webkit-transform: translateX(0);
+	    -moz-transform: translateX(0);
+	    -ms-transform: translateX(0);
+	    -o-transform: translateX(0);
+	    transform: translateX(0);
+	}
+	&.image1{
+		background: url('../img/reklama1/slika.jpg') 50% no-repeat #14151b;
+		background-size: cover;
+	}
+	&.image2{
+	    background: #982b3c url('../img/reklama1/Billboard1-1600x900.jpg') no-repeat center center;
+	    background-size: cover;
+	}
+}
 
 #main {
      height: 100%;
      transition: all .5s;
      -webkit-transition: all .5s;
+     position:relative;
+    #page-menu {
+        position: fixed; 
+        width:30%;
+        top: 0%;
+        bottom:0%;
+        height: 100%;
+        background:#000; 
+        .content {
+	   		@include container(80%);
+	   		
+			z-index:1001;
+			position: relative;
+			padding: 5em 0em;
+			height: 100%;
+
+			ul {
+				display:block;
+				list-style: none;
+				margin: 0px;
+				padding: 0px;
+				li {
+					display:block;
+					a {
+						display:block;
+					    padding: 5px 0;
+					   
+      				    @include font-size($fontLSize)
+					}
+
+					a:after {
+		       	     	-webkit-transition: all 0.5s ease;
+					    transition: all 0.2s ease;
+					    width: 0px;
+					    height: 2px;
+					    display: block;
+					    content: "";
+					    background: $color0;
+					    position: absolute;
+					    left: 0%;
+					    right: 0%;
+					    bottom: 0px;
+					    
+					   
+		       	    }
+		       	    a:hover:after{
+					       position: absolute;
+						   width: 100%;
+						   left: 0px;
+						   right: 0;
+					}
+					a.active:after{
+					       position: absolute;
+						   width: 100%;
+						   left: 0px;
+						   right: 0;
+					}
+
+				}
+				@include linx($color3,$color3,$color0,$color0){
+	    			text-transform: uppercase;    
+	    			position: relative;  
+				}
+			}
+	   }
+	   h2{
+	   	color: $color5;
+	   	font-weight: 300;
+	   	@include font-size($fontMSize);
+	   }
+	   h1{
+	   	  @include font-size($fontXXXLSize);
+	   	  color: $color0;
+	   	  margin:0px;
+	   	  margin-bottom: 2em;
+	   	  a {
+	   	  	color: $color0;
+	   	  	text-transform: uppercase;    
+	   	  	text-decoration: none;
+	   	  }
+	   }
+    } 
 	.page {
-	    height: 100%;
+	    
 	   .content {
-	        margin-top: 260px;
+	        padding: 5em 0em;
 	   		@include container(80%);
 	   }
-	       top: 0;
-    left: 0;
-    -ms-transform: translateY(48%);
-    transform: translateY(48%);
-    -webkit-transform: translateY(48%);
-    position: absolute;
-        z-index: 0;
-	   
+	   height: 100%;
+       position: absolute; 
+       right: 0;
+       width: 70%; 
+	   background:#FFF; 
+	   top: 0%;
+       bottom:0%;
+       .sections {
+          position:relative;
+       }
+
+
+       .block-navigation {
+		    &.active {
+		    	display: block;	
+		    }
+		     z-index: 9;
+
+display:none;
+    -webkit-animation: fadeInFromNone 0.5s ease-out;
+    -moz-animation: fadeInFromNone 0.5s ease-out;
+    -o-animation: fadeInFromNone 0.5s ease-out;
+    animation: fadeInFromNone 0.5s ease-out;
+		    position: fixed;
+		    top: 0;
+		    /* Ovo sam izbacio zbog fixne */
+		    //left: 0;
+		    width: 100%;
+		    width: 70%;
+		    list-style:none;
+		    margin: 0px;
+		    padding: 0px;
+		    li:first-of-type {
+			    float: left;
+			}
+		    li:last-of-type {
+			    float: right;
+			}
+		    li {
+    width: 50%;
+    width: calc(100%/3);
+    //width: calc(70%/3);
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-transition: background 0.2s;
+    -moz-transition: background 0.2s;
+    transition: background 0.2s;
+    float:left;
+
+}
+li:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+		    button {
+			    display: block;
+			    height: 100%;
+			    width: 100%;
+			    color: #ffffff;
+			    -webkit-font-smoothing: antialiased;
+			    -moz-osx-font-smoothing: grayscale;
+			    cursor: pointer;
+			    border: none;
+			    background-color: transparent;
+			    outline: none;
+    			font-size: 1.6rem;
+			}
+		}
+
+       .section {
+
+            -webkit-transform: translateZ(0);
+		    -moz-transform: translateZ(0);
+		    -ms-transform: translateZ(0);
+		    -o-transform: translateZ(0);
+		    transform: translateZ(0);
+		    -webkit-backface-visibility: hidden;
+		    backface-visibility: hidden;
+		    will-change: transform;
+		    -webkit-transform: translateX(100%);
+		    -moz-transform: translateX(100%);
+		    -ms-transform: translateX(100%);
+		    -o-transform: translateX(100%);
+		    transform: translateX(100%);
+		    -webkit-transition: -webkit-transform 0.5s;
+		    -moz-transition: -moz-transform 0.5s;
+		    transition: transform 0.5s;
+		    opacity: 0;
+			position: absolute; 
+			top:0;
+			left: 0;
+			visibility:hidden; 
+			overflow: hidden;
+			height:0px;
+		   &.active{
+		   	    -webkit-transform: translateX(0);
+			    -moz-transform: translateX(0);
+			    -ms-transform: translateX(0);
+			    -o-transform: translateX(0);
+			    transform: translateX(0);
+			    opacity: 1;
+			    visibility: visible;
+			    height: auto;
+			    z-index: 8;
+    			
+		   } 
+       }
 	}
-	#slide-intro.active {
-		background:#CCC; 
-	}
+	
+	
+	
+	
 
 }
 
 footer {
-	position: absolute;
+  
+	position: fixed;
 	bottom: 5%;
 	width: 100%;
 	transition: all .5s;
@@ -139,4 +376,73 @@ footer {
     	@include container(80%);
     }
 	
+}
+
+
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
 }

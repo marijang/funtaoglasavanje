@@ -1,1 +1,1 @@
-$(document).ready(function(){});
+$(document).ready(function(){alert("dasdsa"),$(".page-change").on("click",function(){$(".section.active").removeClass("active");var a=$(this).attr("href");console.log(a),$(a).addClass("active")})});

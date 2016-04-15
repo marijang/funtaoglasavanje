@@ -26,18 +26,21 @@ gulp.task('js:minify', function() {
   var appjs = paths.js;
   var libjs = paths.libjs;
   console.log(libjs);
+   gulp.src('dist/js/app.all.js').pipe(clean());
    gulp.src(libjs.concat(appjs))
+    .pipe(concat('app.all.js'))
     .pipe(minify({
         ext:{
             src:'app-debug.js',
             min:'.js'
         },
         exclude: ['tasks'],
-        ignoreFiles: ['.all.js', '-min.js']
+        ignoreFiles: ['app.all.js', '-min.js']
     }))
+  //  
     .pipe(gulp.dest('dist/js'))
-    .pipe(concat('app.all.js'))
-    .pipe(gulp.dest('dist/js'))
+    
+    //.pipe(gulp.dest('dist/js'))
     .pipe(notify("JS Minified!"));
 });
 
