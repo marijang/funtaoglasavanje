@@ -1,0 +1,156 @@
+@mixin size($width, $height: $width) {
+      width: $width;
+      height: $height;
+}
+
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin centererVertical {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(0%, -50%);
+}
+
+.blur {
+   color: transparent;
+   text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+@mixin font-size($sizeValue: 16, $line: $sizeValue * 1.5) {
+    font-size: ($sizeValue) + px;
+    line-height: ($line) + px;
+    font-size: ($sizeValue / 16) + rem;
+    line-height: ($line / 16) + rem;
+}
+
+/* 
+* Link mixin 
+* $direction: up, down, left, right
+*/
+@mixin linx ($link, $visit, $hover, $active, $text-decoration: none) {
+  a {
+    color: $link;
+    text-decoration: $text-decoration;
+    @content;
+    &:visited {
+      color: $visit;
+    }
+    &:hover {
+      color: $hover;   
+    }
+    &:active {
+      color: $active;
+    }
+  }
+}
+
+/* 
+* @include triangle within a pseudo element and add positioning properties (ie. top, left)
+* $direction: up, down, left, right
+*/
+@mixin triangle($direction, $size: 6px, $color: #222){
+  content: '';
+  display: block;
+  position: absolute;
+  height: 0; width: 0;
+  @if ($direction == 'up'){
+    border-bottom: $size solid $color;
+    border-left: 1/2*$size solid transparent;
+    border-right: 1/2*$size solid transparent;
+  }
+  @else if ($direction == 'down'){
+    border-top: $size solid $color;
+    border-left: 1/2*$size solid transparent;
+    border-right: 1/2*$size solid transparent;
+  }
+  @else if ($direction == 'left'){
+    border-top: 1/2*$size solid transparent;
+    border-bottom: 1/2*$size solid transparent;
+    border-right: $size solid $color;
+  }
+  @else if ($direction == 'right'){
+    border-top: 1/2*$size solid transparent;
+    border-bottom: 1/2*$size solid transparent;
+    border-left: $size solid $color;
+  }
+}
+
+@mixin tooltip($background-color: white,
+               $arrow-base: 2em,
+               $arrow-length: 1em,
+               $border-width: 0,
+               $border-color: false) {
+  
+  position: absolute;
+  box-sizing: border-box;
+  margin-bottom: $arrow-length;
+  background-color: $background-color;
+  cursor: default;
+  visibility: hidden;
+  
+  &:after {
+    content: "";
+    position: absolute;
+    top: 100%; left: 50%;
+    width: 0; height: 0;
+    border-top: ($arrow-length - $border-width) solid $background-color;
+    border-left: ($arrow-base / 2 - $border-width) solid transparent;
+    border-right: ($arrow-base / 2 - $border-width) solid transparent;
+    margin-left: ($border-width - $arrow-base / 2);
+  }
+  
+  @if $border-width {
+    border: $border-width solid $border-color;
+    
+    &:before {
+      content: "";
+      position: absolute;
+      top: 100%; left: 50%;
+      width: 0; height: 0;
+      border-top: $arrow-length solid $border-color;
+      border-left: ($arrow-base / 2) solid transparent;
+      border-right: ($arrow-base / 2) solid transparent;    
+      margin-left: ($arrow-base / -2);
+    }
+  }
+}
+
+// Mixins for prefixes
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($animation-values) {
+  -webkit-animation: $animation-values;
+  animation: $animation-values;
+}
+
+@mixin transform($transform-values...) {
+  -webkit-transform: $transform-values;
+  transform: $transform-values;
+}
+
+// Animations
+
+@include keyframes(slide-up) {
+  0% {
+    opacity: 0;
+    @include transform(translateY(1em));
+  }
+  100% {
+    opacity: 1;
+    @include transform(translateY(0));
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "analytics": true,
+  "directory": "bower_components",
+  "proxy": "http://proxy.in2.hr:8080",
+  "https-proxy": "http://proxy.in2.hr:8080",
+  "color": true,
+  "timeout": 60000,
+  "ignoredDependencies": [
+    "jquery"   
+  ]
+}

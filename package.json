@@ -1,0 +1,35 @@
+{
+  "name": "funtaoglasavanje",
+  "version": "0.0.0",
+  "description": "Funta Oglasavanje",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/marijang/funtaoglasavanje.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marijang/funtaoglasavanje/issues"
+  },
+  "homepage": "https://github.com/marijang/funtaoglasavanje",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0",
+    "gulp-watch": "^4.3.5",
+    "node-notifier": "^4.5.0"
+  },
+  "devDependencies": {
+    "connect": "^3.4.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^2.0.6",
+    "gulp-concat": "^2.6.0",
+    "gulp-minify": "0.0.7",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "serve-static": "^1.10.2"
+  }
+}

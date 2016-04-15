@@ -1,0 +1,142 @@
+@import "bower_components/susy/sass/susy";
+@import "../bower_components/breakpoint-sass/stylesheets/breakpoint";
+@import "base/globals";
+@import "base/mg";
+@import "etc/hamburgers";
+
+
+@include layout (12 1/2 fluid float outside);
+
+html,body {
+	@include size(100%);
+	font-size:100%;
+	font-family: 'Roboto', sans-serif;
+	font-family: 'Merriweather', serif;
+	font-family: 'Roboto', sans-serif;
+}
+
+
+body {
+   height: 100%;
+ 
+   overflow-x: hidden;
+   display:flex;
+   flex-direction: column;
+   flex-wrap: nowrap;
+   align-items: stretch;
+   margin-top:0px;
+   margin-bottom:0px;
+   //background: url($backgroundImage) 50% no-repeat #14151b;
+   //background-size: cover;
+   @include font-size(16);
+   padding: 0px;
+   margin: 0px;
+}
+
+#logo{
+    float: left;
+	@include linx($color3,$color3,$color0,$color3){
+	    text-transform: uppercase;      
+	}
+	h1{
+		@include font-size($fontLSize);
+	}
+}
+
+header{
+    position: fixed;
+    margin-top: 2%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    
+    nav {
+       @include container(80%);
+       ul{
+       	  float: right;
+       	  list-style: none;
+       	  li {
+       	     display:inline-block;
+       	    
+       	     a {
+       	        text-decoration:none;
+       	        position: relative;
+       	        color: $color1;
+       	        display: block;
+       	        padding:5px;
+       	        &:hover {
+       	        	color: $color3;
+       	        }
+       	     }
+       	     a:after {
+       	     	-webkit-transition: all 0.2s ease;
+			    transition: all 0.2s ease;
+			    width: 0px;
+			    height: 2px;
+			    display: block;
+			    content: "";
+			    background: $color3;
+			    position: absolute;
+			    left: 50%;
+			    right: 50%;
+			    bottom: 0px;
+			    
+			   
+       	     }
+       	    a:hover:after{
+			       position: absolute;
+				   width: 100%;
+				   left: -2px;
+				   right: 0;
+			}
+
+       	  }
+       	  @include font-size($fontLSize);
+       	  @include breakpoint($small){
+
+       	  }
+       }
+    }
+
+
+}
+
+
+#main {
+     height: 100%;
+     transition: all .5s;
+     -webkit-transition: all .5s;
+	.page {
+	    height: 100%;
+	   .content {
+	        margin-top: 260px;
+	   		@include container(80%);
+	   }
+	       top: 0;
+    left: 0;
+    -ms-transform: translateY(48%);
+    transform: translateY(48%);
+    -webkit-transform: translateY(48%);
+    position: absolute;
+        z-index: 0;
+	   
+	}
+	#slide-intro.active {
+		background:#CCC; 
+	}
+
+}
+
+footer {
+	position: absolute;
+	bottom: 5%;
+	width: 100%;
+	transition: all .5s;
+    -webkit-transition: all .5s;
+    #get-in-touch{
+    	@include container(80%);
+    }
+	
+}

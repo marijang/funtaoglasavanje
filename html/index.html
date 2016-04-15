@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unknown</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,100italic,300italic,400italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,500,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,400italic,300italic,300,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link href="css/app.min.css"  rel="stylesheet" />
+  <script src="js/app.all.js"></script>
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,100italic,300italic,400italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic,900,900italic,300italic,300' rel='stylesheet' type='text/css'>
+
+
+
+ 
+</head>
+<body >
+   
+   <header>
+       <nav>
+       	  <div id="logo">
+       	     <h1><a href="#home" >Funta oglašavanje</a></h1>
+       	  </div>
+       	        <div class="hamburger hamburger--arrow">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+  </div>
+       	  <ul id="navigation">
+       	  	<li>
+       	    	 <a href="#about">Naslovnica</a>
+       	    </li>
+       	    <li>
+       	       <a href="#about">O nama</a>
+       	      
+       	    </li>
+       	    <li>
+       	    	 <a href="#about">Kontakt</a>
+       	    </li>
+       	    
+       	  </ul>
+       </nav>
+   </header>
+
+   <section id="main">
+        <div id="slide-intro" class="page intro">
+        		adasdsa
+        </div>
+   </section>
+
+   
+  <footer>
+  	<div id="get-in-touch">Get in touch</div>
+  	
+  </footer>
+  <script>
+  /**
+   * forEach implementation for Objects/NodeLists/Arrays, automatic type loops and context options
+   *
+   * @private
+   * @author Todd Motto
+   * @link https://github.com/toddmotto/foreach
+   * @param {Array|Object|NodeList} collection - Collection of items to iterate, could be an Array, Object or NodeList
+   * @callback requestCallback      callback   - Callback function for each iteration.
+   * @param {Array|Object|NodeList} scope=null - Object/NodeList/Array that forEach is iterating over, to use as the this value when executing callback.
+   * @returns {}
+   */
+    var forEach=function(t,o,r){if("[object Object]"===Object.prototype.toString.call(t))for(var c in t)Object.prototype.hasOwnProperty.call(t,c)&&o.call(r,t[c],c,t);else for(var e=0,l=t.length;l>e;e++)o.call(r,t[e],e,t)};
+    var hamburgers = document.querySelectorAll(".hamburger");
+    if (hamburgers.length > 0) {
+      forEach(hamburgers, function(hamburger) {
+        hamburger.addEventListener("click", function() {
+          this.classList.toggle("is-active");
+        }, false);
+      });
+    }
+  </script>
+</body>
+</html>
